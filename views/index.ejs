@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Todo Page</title>
     <link rel="stylesheet" href="/style/index.css" />
   </head>
   <body>
@@ -11,7 +11,7 @@
       <div class="task">
         <form action="/" method="post">
           <input type="text" name="task" />
-          <button>Save Task</button>
+          <button class="save">Save Task</button>
         </form>
       </div>
       <div class="task-list">
@@ -20,16 +20,18 @@
           <% arr.forEach((e) => { %>
     <li>
       <%= e.task %>
+<div class="btn">
 
-      <!-- DELETE -->
-      <form action="/delete/<%= e._id %>" method="post" style="display:inline;">
-        <button type="submit">delete</button>
-      </form>
+    <!-- DELETE -->
+    <form action="/delete/<%= e._id %>" method="post" style="display:inline;">
+      <button type="submit" class="del">delete</button>
+    </form>
 
-      <!-- EDIT -->
-      <form action="/edit/<%= e._id %>" method="get" style="display:inline;">
-        <button type="submit">edit</button>
-      </form>
+    <!-- EDIT -->
+    <form action="/edit/<%= e._id %>" method="get" style="display:inline;">
+      <button type="submit" class="edit">edit</button>
+    </form>
+</div>
     </li>
   <% }) %>
         </ul>
